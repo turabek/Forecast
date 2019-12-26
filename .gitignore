@@ -35,3 +35,4 @@ x64/
 /web-ui/.vscode
 /web-ui/node_modules
 /web-ui/dist
+/web-ui/yarn.lock
