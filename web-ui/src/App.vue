@@ -8,14 +8,15 @@
         <a class="nav-link" href="#" v-on:click="searchOrHistory()">History</a>
       </li>
     </ul>
-
-    <div v-if="!showHistory" class=".col-12 weatherSearch">
+   
+    <div v-if="!showHistory" class="weatherSearch">
       <WeatherSearch />
     </div>
-    <div v-if="showHistory" class=".col-12 weatherHistory">
+    <div v-if="showHistory" class="weatherHistory">
       <WeatherHistory />
     </div>
   </div>
+
 </template>
 
 <script lang="ts">
@@ -51,5 +52,11 @@ export default class App extends Vue {
 </script>
 
 <style scoped>
+
+
+.nav{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
 </style>

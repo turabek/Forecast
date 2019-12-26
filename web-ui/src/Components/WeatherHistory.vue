@@ -1,27 +1,31 @@
 <template>
   <div class="history">
     <div class="row">
-      <div class=".col-12 header">
-        <div class="alert alert-info" role="alert">
-          <h2>Weather History</h2>
-        </div>
-        <div class="list-group">
-          <span v-for="(forecast,i) in FORECAST_HISTORY" v-bind:key="i">
-            <button
-              type="button"
-              v-on:click="changeSelected(forecast)"
-              class="list-group-item list-group-item-action"
-            >{{forecast.searchKey}}</button>
-          </span>
+      <div class="col-12 col-md-6">
+        <div class="header">
+          <div class="alert alert-info" role="alert">
+            <h2>Weather History</h2>
+          </div>
+          <div class="list-group">
+            <span v-for="(forecast,i) in FORECAST_HISTORY" v-bind:key="i">
+              <button
+                type="button"
+                v-on:click="changeSelected(forecast)"
+                class="list-group-item list-group-item-action"
+              >{{forecast.searchKey}}</button>
+            </span>
+          </div>
         </div>
       </div>
-
-      <div v-if="selectedForecast && selectedForecast.responses" class=".col-12 forecast">
-        <div class="alert alert-success" role="alert">
-          <h4>{{selectedForecast.searchKey}}</h4>
+      
+      <div class="col-12 col-md-6">
+        <div v-if="selectedForecast && selectedForecast.responses" class=".col-12 forecast">
+          <div class="alert alert-success" role="alert">
+            <h2>{{selectedForecast.searchKey}}</h2>
+          </div>
+          
+          <Weather :weatherInfo="selectedForecast" />
         </div>
-        
-        <Weather :weatherInfo="selectedForecast" />
       </div>
     </div>
   </div>
@@ -64,12 +68,20 @@ export default class WeatherSearch extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+/*
+.header{
+  width: 400px;
+}
+*/
+
 .history {
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.forecast{
-  padding: 5px;
+.list-group{
+  padding-bottom:10px;
 }
+
 </style>

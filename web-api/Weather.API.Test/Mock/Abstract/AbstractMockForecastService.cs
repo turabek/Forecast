@@ -8,7 +8,7 @@ namespace Weather.API.Test.Mock.Abstract
 {
     public abstract class AbstractMockForecastService
     {
-        protected async Task<ForecastReply> PrepareReply(string searchKey)
+        protected Task<ForecastReply> PrepareReply(string searchKey)
         {
             var forecastReply = new ForecastReply()
             {
@@ -27,7 +27,7 @@ namespace Weather.API.Test.Mock.Abstract
                     WindSpeed = 10
                 });
             }
-            return forecastReply;
+            return Task.FromResult(forecastReply);
 
         }
         public AbstractMockForecastService()

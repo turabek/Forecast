@@ -23,7 +23,7 @@ export default class OfflineService implements IOfflineService {
         if (serializedForecastHistory) {
             result = JSON.parse(serializedForecastHistory as string);
         }
-        return result;
+        return result.reverse().slice(0,5);
     }
 
 }

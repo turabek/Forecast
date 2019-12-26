@@ -14,7 +14,7 @@ export default class ForecastService implements IForecastService  {
 
     public async GetForecast(cityOrZipCode:string):Promise<Forecast>{
         let result:Forecast;
-        if (this.isZipCode(cityOrZipCode)) {
+        if (this.isZipCodeWithCountryCode(cityOrZipCode)) {
             result = await  this.GetForecastByZipCode(cityOrZipCode)
         } else {
             result = await this.GetForecastByCity(cityOrZipCode)
@@ -30,8 +30,8 @@ export default class ForecastService implements IForecastService  {
         
     }
 
-    private isZipCode(value:string):boolean{
-        const zipCodePattern = /^\d{5}$|^\d{5},\s{2}$/;
+    private isZipCodeWithCountryCode(value:string):boolean{
+        const zipCodePattern = /^\d{5},\s{2}$/;
         return zipCodePattern.test(value);
     }
 

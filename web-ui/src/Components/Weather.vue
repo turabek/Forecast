@@ -35,14 +35,17 @@ export default class Weather extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@media (min-width: 320px) {
 
+@media (max-width: 520px) {
 .table td, .table th{
     padding: 5px !important;
     padding: 5px !important;
-    vertical-align: middle;
     font-size: small;
   }
+}
+
+.table td, .table th{
+    vertical-align: middle;
 }
   
 </style>
