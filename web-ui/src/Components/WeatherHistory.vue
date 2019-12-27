@@ -6,7 +6,13 @@
           <div class="alert alert-info" role="alert">
             <h2>Weather History</h2>
           </div>
-          <div class="list-group">
+
+          <div v-if="!FORECAST_HISTORY || FORECAST_HISTORY.length==0" class="no-history">
+            <div class="alert alert-warning" role="warning">
+            <h4>No history data exists.</h4>
+          </div>
+          </div>
+          <div v-else class="list-group">
             <span v-for="(forecast,i) in FORECAST_HISTORY" v-bind:key="i">
               <button
                 type="button"
